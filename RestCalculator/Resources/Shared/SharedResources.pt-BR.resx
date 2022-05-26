@@ -117,13 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Calculator.Get.firstNumber" xml:space="preserve">
+  <data name="Calculator.Division.firstNumber" xml:space="preserve">
     <value>O primeiro número não é valido</value>
   </data>
-  <data name="Calculator.Get.secondNumber" xml:space="preserve">
+  <data name="Calculator.Division.secondNumber" xml:space="preserve">
+    <value>O segundo número não é valido</value>
+  </data>
+  <data name="Calculator.Division.You can not divide by zero." xml:space="preserve">
+    <value>Você não pode dividir por 0.</value>
+  </data>
+  <data name="Calculator.Multiply.firstNumber" xml:space="preserve">
+    <value>O primeiro número não é valido</value>
+  </data>
+  <data name="Calculator.Multiply.secondNumber" xml:space="preserve">
+    <value>O segundo número não é valido</value>
+  </data>
+  <data name="Calculator.Sqrt.firstNumber" xml:space="preserve">
+    <value>O primeiro número não é valido</value>
+  </data>
+  <data name="Calculator.Subtract.firstNumber" xml:space="preserve">
+    <value>O primeiro número não é valido</value>
+  </data>
+  <data name="Calculator.Subtract.secondNumber" xml:space="preserve">
+    <value>O segundo número não é valido</value>
+  </data>
+  <data name="Calculator.Sum.firstNumber" xml:space="preserve">
+    <value>O primeiro número não é valido</value>
+  </data>
+  <data name="Calculator.Sum.secondNumber" xml:space="preserve">
     <value>O segundo número não é valido</value>
   </data>
   <data name="One or more validation errors occurred." xml:space="preserve">
     <value>Um ou mais erros de validação ocorreram.</value>
+  </data>
+  <data name="You can not divide by 0." xml:space="preserve">
+    <value>Você não pode dividir por 0.</value>
   </data>
 </root>

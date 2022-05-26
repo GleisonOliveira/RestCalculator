@@ -1,12 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 using RestCalculator.Errors;
 using RestCalculator.Resources.Shared;
+using Hellang.Middleware.ProblemDetails;
+using RestCalculator.Exceptions;
+using RestCalculator.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddProblemDetails(options =>
+{
+    options.IncludeExceptionDetails = (ctx, ex) => builder.Environment.IsDevelopment();
+    options.Map<BaseException>((ctx, ex) =>
+    {
+        return new ExceptionTranslateService(ex).convertExceptionToProblemDetails();
+    });
+});
+
 builder.Services.AddMvc()
     .ConfigureApiBehaviorOptions(options =>
     {
@@ -40,5 +52,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseProblemDetails();
 app.Run();

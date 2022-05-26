@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using RestCalculator.Exceptions;
+using System.Net;
 
 namespace RestCalculator.Controllers
 {
@@ -6,11 +8,6 @@ namespace RestCalculator.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
         private readonly ILogger<CalculatorController> _logger;
 
         public CalculatorController(ILogger<CalculatorController> logger)
@@ -19,9 +16,38 @@ namespace RestCalculator.Controllers
         }
 
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
-        public IActionResult Get(double firstNumber, double secondNumber)
+        public IActionResult Sum(double firstNumber, double secondNumber)
         {
             return Ok((firstNumber + secondNumber).ToString());
+        }
+
+        [HttpGet("subtract/{firstNumber}/{secondNumber}")]
+        public IActionResult Subtract(double firstNumber, double secondNumber)
+        {
+            return Ok((firstNumber - secondNumber).ToString());
+        }
+
+        [HttpGet("multiply/{firstNumber}/{secondNumber}")]
+        public IActionResult Multiply(double firstNumber, double secondNumber)
+        {
+            return Ok((firstNumber - secondNumber).ToString());
+        }
+
+        [HttpGet("division/{firstNumber}/{secondNumber}")]
+        public IActionResult Division(double firstNumber, double secondNumber)
+        {
+            if (secondNumber == 0)
+            {
+                throw new InvalidRequestException("You can not divide by 0.", "Error", "Calculator", nameof(Division));
+            }
+
+            return Ok((firstNumber - secondNumber).ToString());
+        }
+
+        [HttpGet("sqr/{firstNumber}")]
+        public IActionResult Sqrt(double firstNumber)
+        {
+            return Ok(Math.Sqrt(firstNumber).ToString());
         }
     }
 }
